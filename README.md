@@ -5,14 +5,19 @@
 
 Welcome to my portfolio repository! This repository contains a collection of software engineering projects showcasing my skills in full-stack development, distributed systems, databases, and modern web technologies.
 
-## 👋 About Me
+About Me
 
-I'm a Computer Science student passionate about building scalable, distributed systems and modern web applications.
+I am currently pursuing a Master’s in Software Engineering at Arizona State University, with a strong interest in building mobile applications, scalable distributed systems, and modern web applications. I enjoy working across the stack and designing reliable, performance-driven products.
 
-- 🎓 Computer Science student/graduate with expertise in distributed systems and databases
-- 💻 Full-stack developer with experience in React, Node.js, and distributed databases
-- 🔧 Passionate about building scalable, high-performance applications
-- 📊 Interested in data analytics, distributed systems, and cloud computing
+🎓 M.S. in Software Engineering candidate at Arizona State University
+
+📱 Passionate about building mobile applications using Swift and SwiftUI
+
+💻 Full-stack developer with experience in React, Node.js, and distributed databases
+
+🔧 Interested in scalable system design, performance, and reliability
+
+☁️ Curious about cloud computing, distributed systems, and data analytics
 
 ## 📁 Projects
 
@@ -95,7 +100,7 @@ A beautiful iOS application built with SwiftUI and MapKit that allows users to e
 
 - **Total Projects:** 3 (and growing!)
 - **Languages:** JavaScript, TypeScript, Swift, Python, SQL
-- **Latest Update:** December 2024
+
 
 ## 🚀 Getting Started
 
@@ -128,16 +133,8 @@ Each project in this portfolio may have its own license. Please check individual
 
 ## 📧 Contact
 
-- **GitHub:** [@yourusername](https://github.com/Omei55/portfolio)
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/omkarsapkal)
+- **GitHub:** [@Omkar55](https://github.com/Omei55/portfolio)
+- **LinkedIn:** [Omkar Sapkal](https://www.linkedin.com/in/omkarsapkal)
 - **Email:** osapkal@asu.edu
 
 
-## 🙏 Acknowledgments
-
-Thank you for taking the time to review my work! Feel free to explore the projects and reach out if you have any questions or opportunities.
-
----
-
-**Last Updated:** December 2025 
-**Note:** This portfolio is continuously updated with new projects and improvements.
