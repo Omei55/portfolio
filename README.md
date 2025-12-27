@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black.svg)](https://github.com/Omei55)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Welcome to my portfolio repository! This repository contains a collection of software engineering projects showcasing my skills in full-stack development, distributed systems, databases, and modern web technologies.
+Welcome to my portfolio repository! This repository contains a collection of software engineering projects showcasing my skills in Mobile Application Development, full-stack development, distributed systems, databases, and modern web technologies.
 
 About Me
 
