@@ -49,22 +49,43 @@ An intelligent Agile management platform designed to streamline story refinement
 
 ---
 
+### 🗺️ [MapApp - Interactive Location Explorer](./projects/mapapp/)
+
+A beautiful iOS application built with SwiftUI and MapKit that allows users to explore famous landmarks and locations around the world. Features an interactive map with location pins, detailed information views, smooth navigation between locations, and custom annotation views.
+
+**Technologies:** Swift, SwiftUI, MapKit, MVVM Architecture, Combine  
+**Key Features:**
+- Interactive MapKit interface with custom location pins
+- Tap-to-zoom functionality on map annotations
+- Detailed location information with image galleries
+- Smooth animated transitions between locations
+- Next button navigation for seamless location browsing
+- Location list view with toggle functionality
+- Wikipedia integration for additional information
+
+[View Project Details →](./projects/mapapp/README.md)
+
+---
+
 ## 🛠️ Technical Skills
 
 ### Languages
 - JavaScript/TypeScript
+- Swift
 - Python
 - SQL
 - HTML/CSS
 
 ### Frameworks & Libraries
-- **Frontend:** React, Redux
+- **Frontend:** React, Redux, SwiftUI
 - **Backend:** Node.js, Express.js, NestJS
+- **Mobile:** iOS Development, MapKit, Combine
 - **Databases:** CockroachDB, PostgreSQL, MySQL, TypeORM
-- **Tools:** Git, Docker, npm/yarn
+- **Tools:** Git, Docker, npm/yarn, Xcode
 
 ### Areas of Expertise
 - Full-stack web development
+- iOS mobile application development
 - Distributed systems and databases
 - RESTful API design
 - Data analytics and visualization
@@ -72,8 +93,8 @@ An intelligent Agile management platform designed to streamline story refinement
 
 ## 📊 Project Statistics
 
-- **Total Projects:** 2 (and growing!)
-- **Languages:** JavaScript, TypeScript, Python, SQL
+- **Total Projects:** 3 (and growing!)
+- **Languages:** JavaScript, TypeScript, Swift, Python, SQL
 - **Latest Update:** December 2024
 
 ## 🚀 Getting Started
@@ -92,6 +113,13 @@ Or to run the Agile Pulse System:
 ```bash
 cd projects/agile-pulse-system
 make start  # Start database, backend, and frontend
+```
+
+Or to open the MapApp iOS project:
+
+```bash
+cd projects/mapapp
+open MapApp.xcodeproj  # Open in Xcode
 ```
 
 ## 📝 License
