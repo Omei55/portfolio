@@ -31,7 +31,23 @@ A comprehensive full-stack analytics dashboard for multi-location convenience st
 
 ---
 
-*More projects coming soon!*
+### 🌀 [Agile Pulse System](./projects/agile-pulse-system/)
+
+An intelligent Agile management platform designed to streamline story refinement, sprint readiness, MVP planning, and progress tracking for software development teams. Enables Product Owners, Scrum Masters, Developers, and Stakeholders to collaborate efficiently using real-time data, notifications, and integrations with external tools.
+
+**Technologies:** React, Node.js, NestJS, TypeScript, PostgreSQL, Docker, TypeORM  
+**Key Features:**
+- Full-stack Agile project management system
+- User story and sprint management
+- Task tracking and assignment
+- Real-time notifications and comments
+- Analytics and reporting dashboard
+- RESTful API with JWT authentication
+- Docker containerization for easy deployment
+
+[View Project Details →](./projects/agile-pulse-system/README.md)
+
+---
 
 ## 🛠️ Technical Skills
 
@@ -43,8 +59,8 @@ A comprehensive full-stack analytics dashboard for multi-location convenience st
 
 ### Frameworks & Libraries
 - **Frontend:** React, Redux
-- **Backend:** Node.js, Express.js
-- **Databases:** CockroachDB, PostgreSQL, MySQL
+- **Backend:** Node.js, Express.js, NestJS
+- **Databases:** CockroachDB, PostgreSQL, MySQL, TypeORM
 - **Tools:** Git, Docker, npm/yarn
 
 ### Areas of Expertise
@@ -56,8 +72,8 @@ A comprehensive full-stack analytics dashboard for multi-location convenience st
 
 ## 📊 Project Statistics
 
-- **Total Projects:** 1 (and growing!)
-- **Languages:** JavaScript, Python, SQL
+- **Total Projects:** 2 (and growing!)
+- **Languages:** JavaScript, TypeScript, Python, SQL
 - **Latest Update:** December 2024
 
 ## 🚀 Getting Started
@@ -69,6 +85,13 @@ For example, to run the POD Market Analytics Dashboard:
 ```bash
 cd projects/pod-market-analytics
 # Follow the instructions in that project's README
+```
+
+Or to run the Agile Pulse System:
+
+```bash
+cd projects/agile-pulse-system
+make start  # Start database, backend, and frontend
 ```
 
 ## 📝 License

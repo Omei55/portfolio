@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Board - Preview</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            background-color: #f7fafc;
+            min-height: 100vh;
+        }
+
+        .task-board-container {
+            min-height: 100vh;
+            background-color: #f7fafc;
+        }
+
+        .task-board-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .task-board-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .user-role {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+
+        .logout-button {
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .logout-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .task-board-main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        /* Filters Section */
+        .task-board-filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 150px;
+        }
+
+        .filter-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .filter-select, .search-input {
+            padding: 10px 14px;
+            font-size: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-select:focus, .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* Kanban Board */
+        .kanban-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .kanban-column {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            max-height: calc(100vh - 300px);
+        }
+
+        .column-header {
+            padding: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f7fafc;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .column-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .column-count {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .column-content {
+            padding: 16px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .empty-column {
+            text-align: center;
+            padding: 40px 20px;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        /* Task Cards */
+        .task-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-color: #cbd5e0;
+        }
+
+        .task-card-header {
+            margin-bottom: 12px;
+        }
+
+        .task-title {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            line-height: 1.4;
+        }
+
+        .task-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .task-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .task-assignee,
+        .task-points {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .assignee-label,
+        .points-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .assignee-value,
+        .points-value {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .kanban-board {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .kanban-column {
+                max-height: none;
+            }
+
+            .task-board-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .search-group {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .user-section {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .task-board-main {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="task-board-container">
+        <header class="task-board-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="#" class="back-link">← Dashboard</a>
+                    <h1>Task Board</h1>
+                </div>
+                <div class="user-section">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role">Team Member</span>
+                    <button class="logout-button">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="task-board-main">
+            <!-- Filters Section -->
+            <div class="task-board-filters">
+                <div class="filter-group">
+                    <label for="project-filter">Project:</label>
+                    <select id="project-filter" class="filter-select">
+                        <option value="all">All Projects</option>
+                        <option value="Sprint 1">Sprint 1</option>
+                        <option value="Sprint 2">Sprint 2</option>
+                        <option value="Backlog">Backlog</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="assignee-filter">Assignee:</label>
+                    <select id="assignee-filter" class="filter-select">
+                        <option value="all">All Assignees</option>
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Smith">Jane Smith</option>
+                        <option value="Bob Johnson">Bob Johnson</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="status-filter">Status:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">All Statuses</option>
+                        <option value="To Do">To Do</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+
+                <div class="filter-group search-group">
+                    <label for="search-input">Search:</label>
+                    <input
+                        id="search-input"
+                        type="text"
+                        placeholder="Search tasks..."
+                        class="search-input"
+                    />
+                </div>
+            </div>
+
+            <!-- Kanban Board -->
+            <div class="kanban-board">
+                <!-- To Do Column -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h2 class="column-title">To Do</h2>
+                        <span class="column-count">3</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Implement user authentication</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #f56565;">High</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">John Doe</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">8</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Design dashboard UI</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #ed8936;">Medium</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">Jane Smith</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Write unit tests</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #ed8936;">Medium</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">Bob Johnson</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- In Progress Column -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h2 class="column-title">In Progress</h2>
+                        <span class="column-count">2</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Set up database schema</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #f56565;">High</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">John Doe</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">13</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Create API endpoints for stories</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #f56565;">High</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">Jane Smith</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Done Column -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h2 class="column-title">Done</h2>
+                        <span class="column-count">2</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Implement filtering and sorting</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #ed8936;">Medium</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">Bob Johnson</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <h3 class="task-title">Setup project structure</h3>
+                                <div class="task-badges">
+                                    <span class="priority-badge" style="background-color: #48bb78;">Low</span>
+                                </div>
+                            </div>
+                            <div class="task-card-body">
+                                <div class="task-assignee">
+                                    <span class="assignee-label">Assignee:</span>
+                                    <span class="assignee-value">John Doe</span>
+                                </div>
+                                <div class="task-points">
+                                    <span class="points-label">Points:</span>
+                                    <span class="points-value">5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple filter functionality for demo
+        document.getElementById('project-filter').addEventListener('change', function() {
+            console.log('Project filter changed:', this.value);
+        });
+
+        document.getElementById('assignee-filter').addEventListener('change', function() {
+            console.log('Assignee filter changed:', this.value);
+        });
+
+        document.getElementById('status-filter').addEventListener('change', function() {
+            console.log('Status filter changed:', this.value);
+        });
+
+        document.getElementById('search-input').addEventListener('input', function() {
+            console.log('Search query:', this.value);
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,187 @@
+/**
+ * ErrorAlert Styles
+ * Consistent styling for error alerts across the application
+ */
+
+.error-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-alert-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+}
+
+.error-alert-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.error-alert-message {
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.error-alert-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-alert-close:hover {
+  opacity: 1;
+}
+
+.error-alert-close:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Error type styles */
+.error-alert-error {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+}
+
+.error-alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.error-alert-info {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+/* Validation error styles */
+.validation-error {
+  display: block;
+  color: #c33;
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 4px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.field-error {
+  display: block;
+  color: #c33;
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 4px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.input-error {
+  border-color: #fcc !important;
+  background-color: #fff5f5 !important;
+}
+
+.input-error:focus {
+  outline-color: #c33 !important;
+  border-color: #c33 !important;
+}
+
+/* Error placeholder for empty states */
+.error-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: #666;
+  min-height: 200px;
+}
+
+.error-placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.error-placeholder-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.error-placeholder-message {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+  max-width: 400px;
+}
+
+.error-placeholder-action {
+  margin-top: 16px;
+}
+
+.error-placeholder-button {
+  padding: 8px 16px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.error-placeholder-button:hover {
+  background-color: #5568d3;
+}
+
+.error-placeholder-button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}

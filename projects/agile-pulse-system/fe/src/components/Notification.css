@@ -1,0 +1,137 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease-out;
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification-success {
+  border-left-color: #48bb78;
+  background-color: #f0fff4;
+}
+
+.notification-error {
+  border-left-color: #f56565;
+  background-color: #fff5f5;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.notification-success .notification-icon {
+  background-color: #48bb78;
+  color: #ffffff;
+}
+
+.notification-error .notification-icon {
+  background-color: #f56565;
+  color: #ffffff;
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.notification-success .notification-message {
+  color: #22543d;
+}
+
+.notification-error .notification-message {
+  color: #742a2a;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #718096;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.notification-close:hover {
+  color: #2d3748;
+}
+
+.notification-success .notification-close:hover {
+  color: #22543d;
+}
+
+.notification-error .notification-close:hover {
+  color: #742a2a;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .notification-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+
+  .notification {
+    min-width: auto;
+    max-width: none;
+  }
+}
+
