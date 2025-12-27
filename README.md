@@ -84,9 +84,9 @@ A beautiful iOS application built with SwiftUI and MapKit that allows users to e
 ### Frameworks & Libraries
 - **Frontend:** React, Redux, SwiftUI
 - **Backend:** Node.js, Express.js, NestJS
-- **Mobile:** iOS Development, MapKit, Combine
-- **Databases:** CockroachDB, PostgreSQL, MySQL, TypeORM
-- **Tools:** Git, Docker, npm/yarn, Xcode
+- **Mobile:** iOS Development, Android Development
+- **Databases:** CockroachDB, PostgreSQL, MySQL, 
+- **Tools:** Git, Docker, npm/yarn, Xcode, Android Studio, VS Code
 
 ### Areas of Expertise
 - Full-stack web development
