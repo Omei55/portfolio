@@ -1,13 +1,13 @@
 # 💼 Portfolio - Software Engineering Projects
 
-[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black.svg)](https://github.com/yourusername)
+[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black.svg)](https://github.com/Omei55)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Welcome to my portfolio repository! This repository contains a collection of software engineering projects showcasing my skills in full-stack development, distributed systems, databases, and modern web technologies.
 
 ## 👋 About Me
 
-*Brief introduction - Update this section with your background*
+I'm a Computer Science student passionate about building scalable, distributed systems and modern web applications.
 
 - 🎓 Computer Science student/graduate with expertise in distributed systems and databases
 - 💻 Full-stack developer with experience in React, Node.js, and distributed databases
@@ -88,5 +88,5 @@ Thank you for taking the time to review my work! Feel free to explore the projec
 
 ---
 
-**Last Updated:** December 2024  
+**Last Updated:** December 2025 
 **Note:** This portfolio is continuously updated with new projects and improvements.
