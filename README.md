@@ -71,6 +71,36 @@ A beautiful iOS application built with SwiftUI and MapKit that allows users to e
 [View Project Details →](./projects/mapapp/README.md)
 
 ---
+## 🎓 Meridian — AI-Powered Academic Productivity Platform `(In Progress)`
+
+An AI-powered academic productivity platform built for professors and students. Meridian goes beyond a standard LMS — it features **Sage**, an AI assistant that reads assignment PDFs, understands their content, and helps students plan, prioritize, and comprehend their coursework — without completing it for them.
+
+Professors can create courses, upload assignments, and view submissions. Students can join courses, track deadlines, submit work, and chat with Sage for contextual assignment guidance.
+
+**Technologies:** Swift, SwiftUI, Node.js, Express.js, TypeScript, PostgreSQL, Firebase, OpenAI API, Pinecone
+
+**Key Features:**
+- Role-based platform — separate professor and student portals
+- JWT authentication with role enforcement at the API middleware layer
+- Course management, assignment uploads, and file submission system
+- RAG pipeline — PDFs ingested, embedded, and stored in Pinecone for contextual AI retrieval
+- Sage AI assistant — answers questions about assignments using document context
+- Realtime professor-student messaging via Firebase Firestore
+- Push notifications via APNs
+- SwiftData offline caching for assignments
+- App Store deployment planned via TestFlight
+
+**Current Status:**
+- [x] Backend API complete — auth, courses, assignments, submissions
+- [x] PostgreSQL schema with role-based access control
+- [ ] iOS SwiftUI app (in progress)
+- [ ] Sage AI assistant (Phase 3)
+- [ ] Realtime messaging (Phase 2)
+- [ ] App Store release (Phase 4)
+
+[View Project Details →](https://github.com/Omei55/portfolio/tree/main/projects/Meridian)
+
+---
 
 ## 🛠️ Technical Skills
 
